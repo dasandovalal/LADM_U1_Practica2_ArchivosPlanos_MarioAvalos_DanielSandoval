@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -20,6 +20,6 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Acerca de..."
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
