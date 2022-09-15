@@ -6,7 +6,37 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:background="#BE9C27B0"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editDisco"
+            android:layout_marginRight="5dp"
+            android:hint="Artista - Disco"
+            android:textAlignment="center"
+            />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/editDisco"
+            android:id="@+id/btnGuardar"
+            android:src="@drawable/ic_baseline_save_24"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDiscoList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/card_view"
+        />
 
 </LinearLayout>
