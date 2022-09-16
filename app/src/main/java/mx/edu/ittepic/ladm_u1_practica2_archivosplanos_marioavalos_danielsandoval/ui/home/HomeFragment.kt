@@ -1,21 +1,26 @@
 package mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.ui.home
 
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.Disco
 import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.DiscoAdapter
 import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.databinding.FragmentHomeBinding
+import java.lang.reflect.Type
+import android.content.SharedPreferences
 
 class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
 
     var dataSet: MutableList<Disco> = arrayListOf()
+    //lateinit var dataList:ArrayList<Disco>
     lateinit var mAdapter: DiscoAdapter
     var isEditar = false
     var posicion = -1
@@ -46,6 +51,9 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
         binding.recyclerDiscoList.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerDiscoList.adapter = mAdapter
 
+        mAdapter.submitList(dataSet)
+        mAdapter.notifyDataSetChanged()
+
         binding.btnGuardar.setOnClickListener{
             if (!isEditar){
                 dataSet.add(Disco(binding.editDisco.text.toString().trim()))
@@ -64,6 +72,7 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
 
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
