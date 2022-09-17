@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity(){
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Snackbar.make(view, "Seguro que deseas salir?", Snackbar.LENGTH_LONG)
+                .setAction("SI", { finish() }).show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
