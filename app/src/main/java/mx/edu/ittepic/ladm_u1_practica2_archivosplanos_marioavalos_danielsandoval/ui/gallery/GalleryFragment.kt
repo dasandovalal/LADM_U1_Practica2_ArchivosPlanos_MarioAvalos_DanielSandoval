@@ -37,10 +37,6 @@ class GalleryFragment : Fragment() {
             guardarEnArchivo(binding.tituloArchivo.text.toString())
         }
 
-        binding.salir.setOnClickListener {
-
-        }
-
         binding.abrirArchivo.setOnClickListener {
             abrirContenidoArchivo()
         }
