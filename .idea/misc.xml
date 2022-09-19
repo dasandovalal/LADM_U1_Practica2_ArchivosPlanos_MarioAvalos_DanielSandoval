@@ -13,6 +13,7 @@
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/drawable/side_nav_bar.xml" value="0.1065" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/activity_main.xml" value="0.27884615384615385" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/app_bar_main.xml" value="0.37109375" />
+        <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/card_view.xml" value="0.37109375" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/content_main.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/fragment_gallery.xml" value="0.37109375" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/fragment_home.xml" value="0.375" />
@@ -20,11 +21,7 @@
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/item_recycler_disco.xml" value="0.36953125" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/nav_header_main.xml" value="0.37109375" />
         <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/menu/activity_main_drawer.xml" value="0.37109375" />
-        <entry key="..\:/Users/mario/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/app_bar_main.xml" value="0.259375" />
-        <entry key="..\:/Users/mario/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/fragment_gallery.xml" value="0.259375" />
-        <entry key="..\:/Users/mario/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
-        <entry key="..\:/Users/mario/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/layout/nav_header_main.xml" value="0.259375" />
-        <entry key="..\:/Users/mario/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/menu/activity_main_drawer.xml" value="0.259375" />
+        <entry key="..\:/Users/ElBarto/AndroidStudioProjects/LADM_U1_Practica2_ArchivosPlanos_MarioAvalos_DanielSandoval/app/src/main/res/menu/main.xml" value="0.37109375" />
       </map>
     </option>
   </component>

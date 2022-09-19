@@ -1,7 +1,10 @@
 package mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity(){
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Seguro que deseas salir?", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "¿Seguro que deseas salir?", Snackbar.LENGTH_LONG)
                 .setAction("SI", { finish() }).show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity(){
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,4 +59,5 @@ class MainActivity : AppCompatActivity(){
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
