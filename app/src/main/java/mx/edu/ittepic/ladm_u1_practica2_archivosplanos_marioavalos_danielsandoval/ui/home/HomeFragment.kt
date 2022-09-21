@@ -48,18 +48,22 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
         abrirDesdeArchivo()
 
         binding.btnGuardar.setOnClickListener{
+            var concatenacion = binding.editArtista.text.toString()+" - "+
+                    binding.editDisco.text.toString()
             if (!isEditar){
-                listaDatosDisco.add(binding.editDisco.text.toString())
+                listaDatosDisco.add(concatenacion)
                 mAdapter.submitList(listaDatosDisco)
                 mAdapter.notifyDataSetChanged()
+                binding.editArtista.setText("")
                 binding.editDisco.setText("")
                 guardarEnArchivo()
             }else{
-                listaDatosDisco[posicion] = binding.editDisco.text.toString()
+                listaDatosDisco[posicion] = concatenacion
                 posicion = -1
                 isEditar = false
                 mAdapter.submitList(listaDatosDisco)
                 mAdapter.notifyDataSetChanged()
+                binding.editArtista.setText("")
                 binding.editDisco.setText("")
                 guardarEnArchivo()
             }
@@ -82,7 +86,10 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
     override fun onItemEditar(position: Int, item: String) {
         isEditar = true
         posicion = position
-        binding.editDisco.setText(item.toString())
+        var temporal = listaDatosDisco.get(posicion).split(" - ")
+        binding.editArtista.setText(temporal[0])
+        binding.editDisco.setText(temporal[1])
+        //binding.editDisco.setText(item.toString())
     }
 
     override fun onItemBorrar(position: Int) {
