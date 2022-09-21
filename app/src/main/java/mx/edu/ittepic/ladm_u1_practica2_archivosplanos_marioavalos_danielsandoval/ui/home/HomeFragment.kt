@@ -1,6 +1,5 @@
 package mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.ui.home
 
-import android.R
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,14 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.Disco
 import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.DiscoAdapter
 import mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandoval.databinding.FragmentHomeBinding
-import java.lang.reflect.Type
-import android.content.SharedPreferences
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -26,9 +19,7 @@ import java.lang.Exception
 
 class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
 
-    var dataSet: MutableList<Disco> = arrayListOf()
     var listaDatosDisco = ArrayList<String>()
-    //lateinit var dataList:ArrayList<Disco>
     lateinit var mAdapter: DiscoAdapter
     var isEditar = false
     var posicion = -1
@@ -50,17 +41,11 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
-
         mAdapter = DiscoAdapter(this)
         binding.recyclerDiscoList.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerDiscoList.adapter = mAdapter
 
         abrirDesdeArchivo()
-        //actualizar()
 
         binding.btnGuardar.setOnClickListener{
             if (!isEditar){
@@ -104,15 +89,8 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
         listaDatosDisco.removeAt(position)
         mAdapter.submitList(listaDatosDisco)
         mAdapter.notifyDataSetChanged()
+        guardarEnArchivo()
     }
-
-    /*private fun insertar() {
-        /*var concatenacion = binding.nombrecontacto.text.toString()+"\n"+
-                binding.telefono.text.toString()*/
-        listaDatosDisco.add(binding.editDisco.text.toString()+"\n")
-        binding.recyclerDiscoList.adapter = ArrayAdapter<String>(binding.root.context, android.R.layout.)
-        binding.nombrecontacto.setText("")
-    }*/
 
     fun guardarEnArchivo(){
         try{
@@ -128,8 +106,6 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
             archivo.write(bufferContenido)
             archivo.flush()
             archivo.close()
-
-            Toast.makeText(context,"SE GUARDO CORRECTAMENTE", Toast.LENGTH_LONG).show()
 
         }catch (e:Exception){
             AlertDialog.Builder(binding.root.context)
@@ -160,11 +136,7 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
             mAdapter.notifyDataSetChanged()
 
         }catch (e:Exception){
-            AlertDialog.Builder(binding.root.context)
-                .setTitle("ERROR")
-                .setMessage(e.message)
-                .setPositiveButton("OK"){d,i->}
-                .show()
+
         }
     }
 }
