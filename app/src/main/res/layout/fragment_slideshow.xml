@@ -22,18 +22,6 @@
         android:textSize="37sp"
         android:layout_marginBottom="30dp"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="El CRUD FUNCIONA PERO LA INFO NO PERSISTE :("
-        android:textStyle="italic"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="150dp"
-        android:textSize="20sp"
-        android:padding="30dp"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        />
 
     <TextView
         android:layout_gravity="center|bottom"

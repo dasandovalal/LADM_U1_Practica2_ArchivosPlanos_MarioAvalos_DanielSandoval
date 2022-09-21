@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class DiscoAdapter(private val itemClickListener: OnItemClickListener): ListAdapter<Disco,DiscoAdapter.ViewHolder>(DiffCallBack()){
+class DiscoAdapter(private val itemClickListener: OnItemClickListener): ListAdapter<String,DiscoAdapter.ViewHolder>(DiffCallBack()){
 
-    private class DiffCallBack:DiffUtil.ItemCallback<Disco>(){
-        override fun areItemsTheSame(oldItem: Disco, newItem: Disco): Boolean {
-            return oldItem.disco == newItem.disco
+    private class DiffCallBack:DiffUtil.ItemCallback<String>(){
+        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+            return oldItem.toString() == newItem.toString()
         }
 
-        override fun areContentsTheSame(oldItem: Disco, newItem: Disco): Boolean {
+        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
             return oldItem == newItem
         }
     }
@@ -35,16 +35,16 @@ class DiscoAdapter(private val itemClickListener: OnItemClickListener): ListAdap
         private val btnEdita = itemView.findViewById<ImageButton>(R.id.btnEditar)
         private val btnBorra = itemView.findViewById<ImageButton>(R.id.btnBorrar)
 
-        fun bind(item:Disco, clickListener:OnItemClickListener){
-            txtDisc.text = item.disco
+        fun bind(item:String, clickListener:OnItemClickListener){
+            txtDisc.text = item.toString()
 
-            btnEdita.setOnClickListener { clickListener.onItemEditar(adapterPosition, item) }
+            btnEdita.setOnClickListener { clickListener.onItemEditar(adapterPosition, item.toString()) }
             btnBorra.setOnClickListener { clickListener.onItemBorrar(adapterPosition) }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemEditar(position: Int, item: Disco)
+        fun onItemEditar(position: Int, item: String)
         fun onItemBorrar(position: Int)
     }
 }
