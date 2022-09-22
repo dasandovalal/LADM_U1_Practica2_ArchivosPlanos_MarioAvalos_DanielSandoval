@@ -2,6 +2,7 @@ package mx.edu.ittepic.ladm_u1_practica2_archivosplanos_marioavalos_danielsandov
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,24 +49,35 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
         abrirDesdeArchivo()
 
         binding.btnGuardar.setOnClickListener{
-            var concatenacion = binding.editArtista.text.toString()+" - "+
-                    binding.editDisco.text.toString()
-            if (!isEditar){
-                listaDatosDisco.add(concatenacion)
-                mAdapter.submitList(listaDatosDisco)
-                mAdapter.notifyDataSetChanged()
-                binding.editArtista.setText("")
-                binding.editDisco.setText("")
-                guardarEnArchivo()
-            }else{
-                listaDatosDisco[posicion] = concatenacion
-                posicion = -1
-                isEditar = false
-                mAdapter.submitList(listaDatosDisco)
-                mAdapter.notifyDataSetChanged()
-                binding.editArtista.setText("")
-                binding.editDisco.setText("")
-                guardarEnArchivo()
+            if(binding.editArtista.text.isEmpty()){
+                Toast.makeText(binding.root.context,"Artista Incompleto, ambos campos son requeridos", Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                if (binding.editDisco.text.isEmpty()){
+                    Toast.makeText(binding.root.context,"Disco Incompleto, ambos campos son requeridos",Toast.LENGTH_LONG)
+                        .show()
+            } else {
+                    var concatenacion = binding.editArtista.text.toString() + " - " +
+                            binding.editDisco.text.toString()
+
+                    if (!isEditar) {
+                        listaDatosDisco.add(concatenacion)
+                        mAdapter.submitList(listaDatosDisco)
+                        mAdapter.notifyDataSetChanged()
+                        binding.editArtista.setText("")
+                        binding.editDisco.setText("")
+                        guardarEnArchivo()
+                    } else {
+                        listaDatosDisco[posicion] = concatenacion
+                        posicion = -1
+                        isEditar = false
+                        mAdapter.submitList(listaDatosDisco)
+                        mAdapter.notifyDataSetChanged()
+                        binding.editArtista.setText("")
+                        binding.editDisco.setText("")
+                        guardarEnArchivo()
+                    }
+                }
             }
         }
 
@@ -102,18 +114,20 @@ class HomeFragment : Fragment(),DiscoAdapter.OnItemClickListener{
     fun guardarEnArchivo(){
         try{
             var archivo = OutputStreamWriter(
-                binding.root.context.openFileOutput("datos.txt", MODE_PRIVATE))
+                binding.root.context.openFileOutput("datos.txt", MODE_PRIVATE)
+            )
             var bufferContenido = ""
 
-            for (dato in listaDatosDisco){
-                bufferContenido+= dato+"&&"
+            for (dato in listaDatosDisco) {
+                bufferContenido += dato + "&&"
             }
-            bufferContenido = bufferContenido.substring(0,
-                bufferContenido.lastIndexOf("&&"))
+            bufferContenido = bufferContenido.substring(
+                0,
+                bufferContenido.lastIndexOf("&&")
+            )
             archivo.write(bufferContenido)
             archivo.flush()
             archivo.close()
-
         }catch (e:Exception){
             AlertDialog.Builder(binding.root.context)
                 .setTitle("ERROR")
